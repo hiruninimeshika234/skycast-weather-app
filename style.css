@@ -1,0 +1,147 @@
+/* ============ RESET ============ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ============ DEFAULT BACKGROUND ============ */
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #5f9cff, #89c6ff);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.8s ease;
+}
+
+/* ============ APP CARD ============ */
+.app {
+  position: relative;
+  z-index: 2;
+  width: 360px;
+  padding: 30px 25px;
+  border-radius: 18px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(10px);
+  color: white;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+}
+
+.app h1 {
+  font-size: 28px;
+  margin-bottom: 18px;
+}
+
+/* ============ SEARCH ============ */
+.search {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.search input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+.search button {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* ============ WEATHER INFO ============ */
+#weatherInfo img {
+  width: 70px;
+}
+
+#weatherInfo p {
+  margin-top: 6px;
+}
+
+/* ============ FORECAST ============ */
+.forecast-title {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+#forecast {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  justify-content: center;
+}
+
+.forecast-card {
+  background: rgba(255,255,255,0.15);
+  padding: 8px;
+  border-radius: 10px;
+  width: 60px;
+  font-size: 12px;
+}
+
+.forecast-card img {
+  width: 40px;
+}
+
+/* ============ ANIMATION LAYER ============ */
+#animation-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* 🌧 RAIN */
+.rain-drop {
+  position: absolute;
+  width: 2px;
+  height: 16px;
+  background: rgba(255,255,255,0.8);
+  animation: rain linear infinite;
+}
+
+@keyframes rain {
+  from { transform: translateY(-20px); }
+  to { transform: translateY(100vh); }
+}
+
+/* ☁️ CLOUD (SMALL) */
+.cloud {
+  position: absolute;
+  width: 90px;
+  height: 32px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 40px;
+  animation: cloud-move linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: inherit;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  top: -20px;
+}
+
+.cloud::before { left: 8px; }
+.cloud::after { right: 8px; }
+
+@keyframes cloud-move {
+  from { transform: translateX(-150px); }
+  to { transform: translateX(110vw); }
+}
+
